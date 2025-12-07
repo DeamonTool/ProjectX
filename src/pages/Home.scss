@@ -1,0 +1,333 @@
+@use "sass:color";
+
+/* COLORS */
+$color-bg: #1a1a1a;
+$color-primary: #ffcc00;
+$color-secondary: #333;
+$color-text: #fff;
+$color-accent: #00ccff;
+$color-btn-bg: #444;
+$color-btn-text: #fff;
+$color-btn-hover-weight: 10%;
+
+/* TYPOGRAPHY */
+$font-scale: 1;
+$font-xs: 0.75rem * $font-scale;
+$font-sm: 1rem * $font-scale;
+$font-md: 1.25rem * $font-scale;
+$font-lg: 1.75rem * $font-scale;
+
+/* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+/* MAIN CONTAINER */
+.home-container {
+  font-family: "Arial", sans-serif;
+  color: $color-text;
+  background-color: $color-bg;
+  padding: 20px;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+
+  /* HEADER */
+  .header {
+    border-bottom: 1px solid $color-secondary;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .logo {
+      font-size: $font-lg;
+      font-weight: bold;
+      color: $color-primary;
+    }
+
+    .header-controls {
+      display: flex;
+      gap: 10px;
+
+      select,
+      button {
+        padding: 5px 10px;
+        background-color: $color-btn-bg;
+        font-size: $font-xs;
+        color: $color-btn-text;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: color.mix($color-btn-bg, white, $color-btn-hover-weight);
+        }
+      }
+    }
+  }
+
+  /* PROFILE */
+  .profile {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $color-secondary;
+    padding: 15px 0;
+
+    .profile-columns {
+      display: flex;
+      width: 100%;
+      gap: 10px;
+    }
+
+    .profile-left {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: calc(100% * 2 / 3 - 5px);
+      background-color: $color-secondary;
+      border-radius: 5px;
+
+      .balance-values {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.2;
+
+        .fiat {
+          font-size: $font-lg;
+          font-weight: bold;
+        }
+
+        .crypto {
+          font-size: $font-md;
+          color: $color-accent;
+        }
+      }
+
+      .change-currency {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: none;
+        border: none;
+        font-size: $font-sm;
+        color: $color-btn-text;
+        cursor: pointer;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+
+    .profile-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.2;
+
+      .profile-avatar {
+        width: 80px;
+        height: 80px;
+        background-color: $color-secondary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-bottom: 5px;
+      }
+
+      .nickname {
+        font-size: $font-sm;
+        font-weight: bold;
+      }
+
+      .id {
+        font-size: $font-xs;
+        color: $color-accent;
+      }
+    }
+
+    .profile-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 10px;
+
+      button {
+        flex: 1;
+        background-color: $color-btn-bg;
+        color: $color-btn-text;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: $font-sm;
+
+        &:hover {
+          background-color: color.mix($color-btn-bg, white, $color-btn-hover-weight);
+        }
+      }
+    }
+  }
+
+  /* STATS */
+  .stats {
+    border-bottom: 1px solid $color-secondary;
+    padding: 15px 0;
+
+    .stats-columns {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .stat-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: $color-secondary;
+      padding: 10px;
+      border-radius: 5px;
+
+      .value {
+        font-weight: bold;
+        font-size: $font-md;
+      }
+
+      .label {
+        font-size: $font-sm;
+        color: $color-accent;
+      }
+    }
+  }
+
+  /* GAME MODE */
+  .game-mode {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid $color-secondary;
+    padding: 15px 0;
+
+    .game-options,
+    .bet-limits {
+      display: flex;
+      width: 100%;
+
+      .option-btn {
+        flex: 1;
+        background-color: $color-btn-bg;
+        color: $color-btn-text;
+        cursor: pointer;
+        padding: 10px 0;
+        border: none;
+        text-align: center;
+        font-size: $font-sm;
+        position: relative;
+
+        &:hover {
+          background-color: color.mix($color-btn-bg, white, $color-btn-hover-weight);
+        }
+
+        &:first-child {
+          border-radius: 5px 0 0 5px;
+        }
+
+        &:last-child {
+          border-radius: 0 5px 5px 0;
+        }
+
+        &:not(:first-child):not(:last-child) {
+          border-radius: 0;
+        }
+
+        &:not(:last-child)::after {
+          content: "";
+          position: absolute;
+          top: 10%;
+          right: 0;
+          width: 2px;
+          height: 80%;
+          background-color: $color-secondary;
+        }
+      }
+    }
+
+    .find-room {
+      background-color: $color-primary;
+      color: $color-bg;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: $font-sm;
+
+      &:hover {
+        background-color: color.mix($color-primary, white, $color-btn-hover-weight);
+      }
+    }
+  }
+
+  /* ONLINE ACTIVITY */
+  .online-activity {
+    border-bottom: 1px solid $color-secondary;
+    padding: 15px 0;
+    font-size: $font-xs;
+
+    .recent-winners {
+      color: $color-accent;
+    }
+  }
+
+  /* SUPPORT */
+  .support {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+
+    button {
+      background-color: $color-accent;
+      color: $color-bg;
+      border: none;
+      width: 100%;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: $font-sm;
+
+      &:hover {
+        background-color: color.mix($color-accent, white, $color-btn-hover-weight);
+      }
+    }
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 15px 0;
+    font-size: $font-xs;
+    color: $color-secondary;
+  }
+}
