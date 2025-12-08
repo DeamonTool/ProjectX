@@ -83,7 +83,7 @@ const Home: React.FC = () => {
         <p>💎 Выигрыш за всё время: Strelok-SV $41500/80%</p>
         <p>🎉 Последние 20 победителей:</p>
         <div className="recent-winners">
-          <p>Strelok-SV $320/20% | Strelok-SV $91/4% | ...</p>
+          <p>Strelok-SV $320/20% | Strelok-SV $91/4% |...</p>
         </div>
       </section>
 
